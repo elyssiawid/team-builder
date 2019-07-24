@@ -11,6 +11,10 @@ function App() {
     role: ""
   });
   const [memberEdit, setMemberEdit] = useState("");
+  let newMember = [
+    // ...updatedMember,
+    // [event.target.name]: event.target.value
+  ];
 
   // useEffect(() => {
   //   if (localStorage.getItem("teamMembers"))
@@ -22,14 +26,32 @@ function App() {
   // }, [teamMembers]);
 
   function handleChange(event) {
-    const newMember = {
-      ...updatedMember,
-      [event.target.name]: event.target.value
-    };
-    setTeamMembers(newMember);
+    // setTeamMembers(newMember);
     console.log(teamMembers);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(
+      "ALOHA",
+      event.target.name.value,
+      event.target.email.value,
+      event.target.role.value
+    );
+    newMember.push(
+      `Name: ${event.target.name.value},Email: ${
+        event.target.email.value
+      },Role: ${event.target.role.value}`
+    );
+    setTeamMembers(teamMembers.concat(newMember));
+  }
+
+  function handleEdit(event) {
+    event.preventDefault();
+    let edit = `edit: ${event.target.value}`;
+    console.log(edit);
+    setMemberEdit(edit);
+  }
   // function editTeamMember (newMember) {
   //   setTeamMembers(
   //     teamMembers.map(member => {
@@ -39,7 +61,8 @@ function App() {
   //   );
   //   setMemberToEdit("");
   // };
-
+  console.log(teamMembers);
+  // setTeamMembers(newMember);
   return (
     <div className="form-group">
       <h1 className="form">Team</h1>
@@ -51,11 +74,10 @@ function App() {
         memberEdit={memberEdit}
         setMemberEdit={setMemberEdit}
         handleChange={handleChange}
-        // addMember={addTeamMember}
-        // // editMember={editTeamMember}
-        // memberEdit={memberEdit}
+        handleSubmit={handleSubmit}
+        handleEdit={handleEdit}
       />
-      {/* <div className="form-group">
+      <div className="form-group">
         {teamMembers.map(member => {
           return (
             <TeamMember
@@ -66,11 +88,13 @@ function App() {
               memberEdit={memberEdit}
               setMemberEdit={setMemberEdit}
               handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              handleEdit={handleEdit}
               // edit={setMemberEdit}
             />
           );
         })}
-      </div> */}
+      </div>
     </div>
   );
 }

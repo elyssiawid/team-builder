@@ -27,11 +27,21 @@ const Form = props => {
   //   };
 
   return (
-    <div className="form-container">
-      <form onChange={props.handleChange}>
-        <label>Name</label>
-        <input type="text" name="name" required />
-      </form>
+    <div>
+      <button onClick={props.handleEdit}> edit </button>
+      <label>edit</label>
+      <input type="text" name="edit" />
+      <div className="form-container">
+        <form onSubmit={props.handleSubmit}>
+          <label>Name</label>
+          <input type="text" name="name" required />
+          <label>Email</label>
+          <input type="text" name="email" required />
+          <label>Role</label>
+          <input type="text" name="role" required />
+          <button> Submit </button>
+        </form>
+      </div>
     </div>
     // <div className="form-group">
     //   <form onSubmit={e => submit(e)}>
