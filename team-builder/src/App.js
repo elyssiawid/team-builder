@@ -7,35 +7,35 @@ function App() {
   const [teamMembers, setTeamMembers] = useState([]);
   const [memberEdit, setMemberEdit] = useState("");
 }
-useEffect(() => {
-  if (localStorage.getItem("teamMembers"))
-    setTeamMembers(JSON.parse(localStorage.getItem("teamMembers")));
-}, []);
+// useEffect(() => {
+//   if (localStorage.getItem("teamMembers"))
+//     setTeamMembers(JSON.parse(localStorage.getItem("teamMembers")));
+// }, []);
 
-useEffect(() => {
-  localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
-}, [teamMembers]);
+// useEffect(() => {
+//   localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
+// }, [teamMembers]);
 
-const addTeamMember = newMember => {
+function addTeamMember(newMember) {
   setTeamMembers([...teamMembers, { ...newMember, id: teamMembers.length }]);
-};
+}
 
-const editTeamMember = newMember => {
-  setTeamMembers(
-    teamMembers.map(member => {
-      if (member.id === newMember.id) return newMember;
-      else return member;
-    })
-  );
-  setMemberToEdit("");
-};
+// function editTeamMember (newMember) {
+//   setTeamMembers(
+//     teamMembers.map(member => {
+//       if (member.id === newMember.id) return newMember;
+//       else return member;
+//     })
+//   );
+//   setMemberToEdit("");
+// };
 
 return (
   <div className="form-group">
     <h1 className="form">Team Time</h1>
     <Form
       addMember={addTeamMember}
-      editMember={editTeamMember}
+      // editMember={editTeamMember}
       memberEdit={memberEdit}
     />
     <div className="form-group">
@@ -44,7 +44,7 @@ return (
           <TeamMember
             key={member.id}
             memberInfo={member}
-            edit={setMemberEdit}
+            // edit={setMemberEdit}
           />
         );
       })}
