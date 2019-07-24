@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import { Form, TeamMember } from "./components";
-// import logo from "./logo.svg";
 import "./App.css";
+import Form from "./components/Form";
+import TeamMember from "./components/TeamMember";
 
 function App() {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -21,12 +21,13 @@ function App() {
   //   localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
   // }, [teamMembers]);
 
-  function handleChange(e) {
+  function handleChange(event) {
     const newMember = {
       ...updatedMember,
       [event.target.name]: event.target.value
     };
     setTeamMembers(newMember);
+    console.log(teamMembers);
   }
 
   // function editTeamMember (newMember) {
@@ -49,21 +50,27 @@ function App() {
         setUpdateMember={setUpdatedMember}
         memberEdit={memberEdit}
         setMemberEdit={setMemberEdit}
+        handleChange={handleChange}
         // addMember={addTeamMember}
         // // editMember={editTeamMember}
         // memberEdit={memberEdit}
       />
-      <div className="form-group">
+      {/* <div className="form-group">
         {teamMembers.map(member => {
           return (
             <TeamMember
-              key={member.id}
-              memberInfo={member}
+              teamMembers={teamMembers}
+              setTeamMembers={setTeamMembers}
+              updatedMember={updatedMember}
+              setUpdateMember={setUpdatedMember}
+              memberEdit={memberEdit}
+              setMemberEdit={setMemberEdit}
+              handleChange={handleChange}
               // edit={setMemberEdit}
             />
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 }
