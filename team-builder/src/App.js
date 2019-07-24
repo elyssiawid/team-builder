@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import {Form,TeamMember} from './components';
+import { Form, TeamMember } from "./components";
 import logo from "./logo.svg";
 import "./App.css";
 
-export default function App() {
-  const [teamMembers,setTeamMembers] = useState([]);
-  const [memberEdit, setMemberEdit] = useState('');
+function App() {
+  const [teamMembers, setTeamMembers] = useState([]);
+  const [memberEdit, setMemberEdit] = useState("");
 }
 useEffect(() => {
-  if (localStorage.getItem('teamMembers'))
-    setTeamMembers(JSON.parse(localStorage.getItem('teamMembers')));
+  if (localStorage.getItem("teamMembers"))
+    setTeamMembers(JSON.parse(localStorage.getItem("teamMembers")));
 }, []);
 
 useEffect(() => {
-  localStorage.setItem('teamMembers', JSON.stringify(teamMembers));
+  localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
 }, [teamMembers]);
 
 const addTeamMember = newMember => {
@@ -27,18 +27,18 @@ const editTeamMember = newMember => {
       else return member;
     })
   );
-  setMemberToEdit('');
+  setMemberToEdit("");
 };
 
 return (
-  <div className='text-center max-w-2xl mx-auto'>
-    <h1 className='text-3xl font-bold my-3'>Team Time</h1>
+  <div className="form-group">
+    <h1 className="form">Team Time</h1>
     <Form
       addMember={addTeamMember}
       editMember={editTeamMember}
       memberEdit={memberEdit}
     />
-    <div className='mx-auto max-w-xs'>
+    <div className="form-group">
       {teamMembers.map(member => {
         return (
           <TeamMember
@@ -51,6 +51,5 @@ return (
     </div>
   </div>
 );
-
 
 export default App;

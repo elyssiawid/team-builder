@@ -72,11 +72,11 @@ const Form = props => {
             <option value="" selected="selected" hidden="hidden">
               Choose...
             </option>
-            <option value="UI Developer">UI Developer</option>
+            <option value="UI Developer">UI Developer I </option>
             <option value="Front-End Engineer">Front-End Engineer</option>
             <option value="Back-End Engineer">Back-End Engineer</option>
             <option value="UX Designer">UX Designer</option>
-            <option value="Team Lead">Team Lead</option>
+            <option value="Team Lead">UI Developer II</option>
           </select>
         </div>
         <div className="buttons">
