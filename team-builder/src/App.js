@@ -16,15 +16,6 @@ function App() {
     // [event.target.name]: event.target.value
   ];
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("teamMembers"))
-  //     setTeamMembers(JSON.parse(localStorage.getItem("teamMembers")));
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("teamMembers", JSON.stringify(teamMembers));
-  // }, [teamMembers]);
-
   function handleChange(event) {
     // setTeamMembers(newMember);
     console.log(teamMembers);
@@ -52,15 +43,7 @@ function App() {
     console.log(edit);
     setMemberEdit(edit);
   }
-  // function editTeamMember (newMember) {
-  //   setTeamMembers(
-  //     teamMembers.map(member => {
-  //       if (member.id === newMember.id) return newMember;
-  //       else return member;
-  //     })
-  //   );
-  //   setMemberToEdit("");
-  // };
+
   console.log(teamMembers);
   // setTeamMembers(newMember);
   return (
